@@ -96,7 +96,7 @@ After few seconds DSpace should be accessible from:
 
 # Running on Azure WebApp for Containers
 
-This is the best part. If you want to run Dspace without need to manage VMs and all efforts involved in a [IaaS](https://azure.microsoft.com/en-us/overview/what-is-iaas/) structure, let me present to you the [Azure WebApp for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/). This is allow you to run DSpace in Docker Containers in [PaaS](https://azure.microsoft.com/en-us/overview/what-is-paas/) structure.
+This is the best part. If you want to run Dspace without need to manage VMs and all efforts involved in a [IaaS](https://azure.microsoft.com/en-us/overview/what-is-iaas/) structure, let me present to you the [Azure WebApp for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/). This will allow you to run DSpace using Docker Container in [PaaS](https://azure.microsoft.com/en-us/overview/what-is-paas/) structure.
 
 
 ## Preparing the image
