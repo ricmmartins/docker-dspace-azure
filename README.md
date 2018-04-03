@@ -127,6 +127,27 @@ And make sure that you have the following variables defined:
 
 ![settings](https://github.com/rmmartins/docker-dspace-azure/raw/master/settings.png)
 
+## Job done
+
+In a few minutes, you will able to check Dspace working.
+
+### JSPUI
+
+![jspui](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-jspui.png)
+
+### XMLUI
+
+![xmlui](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-xml.png)
+
+### OAI
+
+![oai](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-oai.png)
+
+### REST
+
+![rest](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-rest.png)
+
+
 
 # License
 
