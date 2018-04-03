@@ -87,11 +87,6 @@ sudo  docker build -t rmartins/docker-dspace-ssh .
 sudo docker run  -p 8080:8080 rmartins/docker-dspace-ssh
 ```
 
-
-
-
-
-
 After few seconds DSpace should be accessible from:
 
  - JSP User Interface: http://localhost:8080/jspui
@@ -99,8 +94,10 @@ After few seconds DSpace should be accessible from:
  - OAI-PMH Interface: http://localhost:8080/oai/request?verb=Identify
  - REST: http://localhost:8080/rest
 
+# Running on Azure WebApp for Containers
 
-This project is configured as an [automated build in Dockerhub](https://hub.docker.com/r/unixelias/docker-dspace/).
+This is the best part. If you want to run Dspace without need to manage VMs and all efforts involved in a [IaaS](https://azure.microsoft.com/en-us/overview/what-is-iaas/) structure, let me present to you the [Azure WebApp for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/). This is allow you to run DSpace in Docker Containers in [PaaS](https://azure.microsoft.com/en-us/overview/what-is-paas/) structure.
+
 
 # License
 
