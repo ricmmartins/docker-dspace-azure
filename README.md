@@ -101,7 +101,7 @@ This is the best part. If you want to run Dspace without need to manage VMs and 
 First save as new image by finding the container ID (using docker ps) and then committing it to a new image name: 
 
 ```
-docker commit c16378f943fe docker-dspace-azure-webapp
+sudo docker commit c16378f943fe rmartins/docker-dspace-azure-webapp
 ```
 
 And finally, push the new image to Docker Hub:
