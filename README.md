@@ -1,6 +1,6 @@
 # What is DSpace?
 
-![logo](https://github.com/unixelias/docker-dspace/raw/master/logo.png)
+![logo](https://github.com/rmmartins/docker-dspace-azure/raw/master/dspace_logo.png)
 
 [DSpace](https://wiki.duraspace.org/display/DSDOC6x/Introduction) is an open source repository software package typically used for creating open access repositories for scholarly and/or published digital content. While DSpace shares some feature overlap with content management systems and document management systems, the DSpace repository software serves a specific need as a digital archives system, focused on the long-term storage, access and preservation of digital content.
 
@@ -38,12 +38,11 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 ### Create a firewall rule: 
 
 ```
-az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255```
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+```
 
 By default the database schema is created with the name `dspace` for a user `dspace` and password `dspace`, but it's possible to override this default settings :
 
-
-```
 docker run -d --link dspace_db:postgres \
         -e POSTGRES_SCHEMA=my_dspace \
         -e POSTGRES_USER=my_user \
