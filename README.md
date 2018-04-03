@@ -129,7 +129,7 @@ And make sure that you have the following variables defined:
 
 ## Job done
 
-In a few minutes, you will able to check Dspace working properly:
+In a few minutes, you will able to see the Dspace working properly:
 
 ### JSPUI
 
