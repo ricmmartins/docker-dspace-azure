@@ -10,25 +10,35 @@ This image is based on official [Ubuntu image](https://hub.docker.com/_/ubuntu/)
 
 DSpace use [PostgreSQL](http://www.postgresql.org/) as database.
 
-We might use an external database or create a PostgreSQL container linked to the DSpace container.
+Here, I'll use the Azure Database for PostgreSQL as an external database.
 
-## Postgres as a container
+## Postgres as a Service
 
-[![](https://images.microbadger.com/badges/image/unixelias/postgres-dspace:9.6-dev.svg)](https://microbadger.com/images/unixelias/postgres-dspace:9.6-dev "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/unixelias/postgres-dspace:9.6-dev.svg)](https://microbadger.com/images/unixelias/postgres-dspace:9.6-dev "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/commit/unixelias/postgres-dspace:9.6-dev.svg)](https://microbadger.com/images/unixelias/postgres-dspace:9.6-dev "Get your own commit badge on microbadger.com")
+First, we have to create the Azure Database for PostgreSQL. I'm using [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) to complete the steps described at [https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-azure-cli](https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-azure-cli)
 
-We have a custom [PostgreSQL Docker Image](https://hub.docker.com/r/unixelias/postgres-dspace/) used to change default locale of PostgreSQL to pt-BR. If you will use the default english language you may not need this, but it can be useful if you need a custom language. The source is avaliable at docker/postgres/Dockerfile
-
-First, we have to create the PostgreSQL container:
-
+### Create the resource group
 ```
-docker run -d --name dspace_db -p 5432:5432 postgres
+az group create --name myresourcegroup --location eastus
 ```
 
-then run DSpace linking the PostgreSQL container:
+### Add the extension
+
+Add the updated Azure Database for PostgreSQL management extension using the following command:
 
 ```
-docker run -d --link dspace_db:postgres -p 8080:8080 unixelias/docker-dspace
+az extension add --name rdbms
 ```
+
+### Create the Postgres as a Service
+
+```
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location eastus --admin-user myadmin --admin-password <server_admin_password> --performance-tier Basic --ssl-enforcement Disabled
+```
+
+### Create a firewall rule: 
+
+```
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255```
 
 By default the database schema is created with the name `dspace` for a user `dspace` and password `dspace`, but it's possible to override this default settings :
 
