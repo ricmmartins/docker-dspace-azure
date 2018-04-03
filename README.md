@@ -78,13 +78,13 @@ db.url = jdbc:postgresql://dspace2.postgres.database.azure.com:5432/dspace?user=
 ### Let's build
 
 ```
-sudo  docker build -t rmartins/docker-dspace-ssh .
+sudo  docker build -t rmartins/docker-dspace-azure .
 ```
 
 ### And let's run
 
 ```
-sudo docker run  -p 8080:8080 rmartins/docker-dspace-ssh
+sudo docker run  -p 8080:8080 rmartins/docker-dspace-azure
 ```
 
 After few seconds DSpace should be accessible from:
