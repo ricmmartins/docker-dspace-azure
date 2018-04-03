@@ -123,6 +123,9 @@ Create the Azure Webapp for Containers and point to the docker image at your rep
 
 ![webapp](https://github.com/rmmartins/docker-dspace-azure/raw/master/webapp.png)
 
+And make sure that you have the following variables defined:
+
+![settings](https://github.com/rmmartins/docker-dspace-azure/raw/master/settings.png)
 
 
 # License
