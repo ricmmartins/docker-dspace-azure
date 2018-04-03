@@ -10,7 +10,7 @@ This image is based on official [Ubuntu image](https://hub.docker.com/_/ubuntu/)
 
 DSpace use [PostgreSQL](http://www.postgresql.org/) as database.
 
-Here, I'll use the Azure Database for PostgreSQL as an external database.
+Here, I'll use the [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/) as an external database, instead to use an Docker image with PostgreSQL.
 
 ## Postgres as a Service
 
@@ -42,7 +42,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 ### Create the database and install a required extension: 
 
-Dspace requires the PostgreSQL 'pgcrypto' extension. So we need to create the database and install this extension. I'll use the [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) command line to do this.
+Dspace requires the PostgreSQL 'pgcrypto' extension. So we need to create the database and install this extension. I'll use the [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) to do this.
 
 ```
 psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -62,7 +62,7 @@ git clone https://github.com/rmmartins/docker-dspace-azure.git
 
 ### Make some adjustments
 
-To build the Dockerfile, you need to ajust the [local.cfg](https://github.com/rmmartins/docker-dspace-azure/blob/master/config/local.cfg#L91) at line 91 to change the servername, user and password by yours.
+To build the Docker image, you need to ajust the [local.cfg](https://github.com/rmmartins/docker-dspace-azure/blob/master/config/local.cfg#L91) at line 91 to change the servername, user and password by yours.
 
 
 ```
@@ -75,13 +75,13 @@ After make the changes, the line 91 from config/local.cfg must be similar to thi
 db.url = jdbc:postgresql://dspace2.postgres.database.azure.com:5432/dspace?user=dspaceadmin@dspace2&password=Pass0rd1?wx$&ssl=false
 ```
 
-### Let's build
+### Let's build our image
 
 ```
 sudo  docker build -t rmartins/docker-dspace-azure .
 ```
 
-### And let's run
+### And let's run this image
 
 ```
 sudo docker run  -p 8080:8080 rmartins/docker-dspace-azure
@@ -107,7 +107,7 @@ First save as new image by finding the container ID (using docker ps) and then c
 sudo docker commit c16378f943fe rmartins/docker-dspace-azure-webapp
 ```
 
-## Push the imagem to repository
+## Push the image to repository
 
 And finally, push the new image to Docker Hub:
 
@@ -117,7 +117,7 @@ sudo docker push rmartins/docker-dspace-azure-webapp
 
 You can use also the [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) to store your images :D
 
-## Setup new Webapp for Containers
+## Setup Webapp for Containers
 
 Create the Azure Webapp for Containers and point to the docker image at your repository, like this:
 
