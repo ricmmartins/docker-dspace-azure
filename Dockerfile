@@ -9,6 +9,7 @@ MAINTAINER Ricardo Martins <ricardo.martins@microsoft.com>
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VCS_BRANCH
+
 # Environment variables
 ARG DSPACE_VERSION=6.2
 ARG TOMCAT_MAJOR=8
@@ -94,23 +95,6 @@ RUN mkdir -p maven \
     && rm -fr ~/.m2 && rm -fr /tmp/* && apt-get remove -y ant \
     && rm -rf ../maven \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# SSH Server support
-
-COPY startup /opt/startup
-RUN chmod 755 /opt/startup/init_container.sh
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends openssh-server \
-    && echo "root:Docker!" | chpasswd
-
-COPY ./config/sshd_config /etc/ssh/
-EXPOSE 2222 80
-#ENTRYPOINT ["/opt/startup/init_container.sh"]
-#CMD "mkdir -p /var/run/sshd"
-CMD ["/bin/bash -c /opt/startup/init_container.sh"]
-#RUN mkdir -p /var/run/sshd
-#RUN /etc/init.d/ssh start
-#CMD ["/usr/sbin/sshd", "-D"]
 
 # Install root filesystem
 ADD ./rootfs /
