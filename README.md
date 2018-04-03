@@ -98,11 +98,16 @@ After few seconds DSpace should be accessible from:
 
 This is the best part. If you want to run Dspace without need to manage VMs and all efforts involved in a [IaaS](https://azure.microsoft.com/en-us/overview/what-is-iaas/) structure, let me present to you the [Azure WebApp for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/). This is allow you to run DSpace in Docker Containers in [PaaS](https://azure.microsoft.com/en-us/overview/what-is-paas/) structure.
 
+
+## Preparing the image
+
 First save as new image by finding the container ID (using docker ps) and then committing it to a new image name: 
 
 ```
 sudo docker commit c16378f943fe rmartins/docker-dspace-azure-webapp
 ```
+
+## Push the imagem to repository
 
 And finally, push the new image to Docker Hub:
 
@@ -111,6 +116,13 @@ sudo docker push rmartins/docker-dspace-azure-webapp
 ```
 
 You can use also the [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) to store your images :D
+
+## Setup new Webapp for Containers
+
+Create the Azure Webapp for Containers and point to the docker image at your repository, like this:
+
+![logo](https://github.com/rmmartins/docker-dspace-azure/raw/master/webapp.png)
+
 
 
 # License
