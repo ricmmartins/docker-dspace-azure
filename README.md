@@ -51,6 +51,47 @@ create database dspace;
 create extension pgcrypto;
 ```
 
+
+# Build
+
+### Clone this repo
+
+```
+git clone https://github.com/rmmartins/docker-dspace-azure.git
+```
+
+### Make some adjustments
+
+To build the Dockerfile, you need to ajust the [local.cfg](https://github.com/rmmartins/docker-dspace-azure/blob/master/config/local.cfg#L91) at line 91 to change the servername, user and password by yours.
+
+
+```
+cd docker-dspace-azure/
+vim config/local.cfg
+```
+
+After make the changes, the line 91 from config/local.cfg must be similar to this:
+```
+db.url = jdbc:postgresql://dspace2.postgres.database.azure.com:5432/dspace?user=dspaceadmin@dspace2&password=Pass0rd1?wx$&ssl=false
+```
+
+### Let's build
+
+```
+sudo  docker build -t rmartins/docker-dspace-ssh .
+```
+
+### And let's run
+
+```
+sudo docker run  -p 8080:8080 rmartins/docker-dspace-ssh
+```
+
+
+
+
+
+
 After few seconds DSpace should be accessible from:
 
  - JSP User Interface: http://localhost:8080/jspui
@@ -58,9 +99,6 @@ After few seconds DSpace should be accessible from:
  - OAI-PMH Interface: http://localhost:8080/oai/request?verb=Identify
  - REST: http://localhost:8080/rest
 
-# Build
-
-To build the Dockerfile, you need to ajust the [local.cfg](https://github.com/rmmartins/docker-dspace-azure/blob/master/config/local.cfg#L91) at line 91 to change the servername, user and password by yours.
 
 This project is configured as an [automated build in Dockerhub](https://hub.docker.com/r/unixelias/docker-dspace/).
 
