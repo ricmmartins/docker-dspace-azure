@@ -110,6 +110,9 @@ And finally, push the new image to Docker Hub:
 sudo docker push rmartins/docker-dspace-azure-webapp
 ```
 
+You can use also the [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) to store your images :D
+
+
 # License
 
 All the code contained in this repository, unless explicitly stated, is
