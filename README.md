@@ -60,6 +60,8 @@ After few seconds DSpace should be accessible from:
 
 # Build
 
+To build the Dockerfile, you need to ajust the [local.cfg](https://github.com/rmmartins/docker-dspace-azure/blob/master/config/local.cfg#L91) at line 91 to change the servername, user and password by yours.
+
 This project is configured as an [automated build in Dockerhub](https://hub.docker.com/r/unixelias/docker-dspace/).
 
 # License
