@@ -137,7 +137,7 @@ In a few minutes, you will able to check Dspace working properly:
 
 ### XMLUI
 
-![xmlui](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-xml.png)
+![xmlui](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-xmlui.png)
 
 ### OAI
 
