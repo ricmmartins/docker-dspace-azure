@@ -121,11 +121,11 @@ You can use also the [Azure Container Registry](https://azure.microsoft.com/en-u
 
 Create the Azure Webapp for Containers and point to the docker image at your repository, like this:
 
-![webapp](https://github.com/rmmartins/docker-dspace-azure/raw/master/webapp.png)
+![webapp](https://github.com/rmmartins/docker-dspace-azure/raw/master/images/webapp.png)
 
 And make sure that you have the following variables defined:
 
-![settings](https://github.com/rmmartins/docker-dspace-azure/raw/master/settings.png)
+![settings](https://github.com/rmmartins/docker-dspace-azure/raw/master/images/settings.png)
 
 ## Job done
 
@@ -133,19 +133,19 @@ In a few minutes, you will able to see the Dspace working properly:
 
 ### JSPUI
 
-![jspui](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-jspui.png)
+![jspui](https://github.com/rmmartins/docker-dspace-azure/raw/master/images/running-jspui.png)
 
 ### XMLUI
 
-![xmlui](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-xmlui.png)
+![xmlui](https://github.com/rmmartins/docker-dspace-azure/raw/master/images/running-xmlui.png)
 
 ### OAI
 
-![oai](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-oai.png)
+![oai](https://github.com/rmmartins/docker-dspace-azure/raw/master/images/running-oai.png)
 
 ### REST
 
-![rest](https://github.com/rmmartins/docker-dspace-azure/raw/master/running-rest.png)
+![rest](https://github.com/rmmartins/docker-dspace-azure/raw/master/images/running-rest.png)
 
 
 
