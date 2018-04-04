@@ -26,7 +26,7 @@ LABEL Name="Dspace v${DSPACE_VERSION}" \
       org.label-schema.description="Deployment of Dspace on Docker" \
       org.label-schema.url="http://www.dspace.org/" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/unixelias/docker-dspace" \
+      org.label-schema.vcs-url="https://github.com/rmmartins/docker-dspace-azure" \
       org.label-schema.vendor="Ricardo Martins at Microsoft" \
       org.label-schema.version=$VCS_BRANCH \
       org.label-schema.version="latest" \
@@ -100,6 +100,7 @@ RUN mkdir -p maven \
 ADD ./rootfs /
 COPY ./config/local.cfg /dspace/config
 COPY ./config/sword-server.cfg /dspace/config/modules/sword-server.cfg
+COPY ./config/swordv2-server.cfg /dspace/config/modules/swordv2-server.cfg
 
 VOLUME $DSPACE_HOME/assetstore
 VOLUME $DSPACE_HOME/config
