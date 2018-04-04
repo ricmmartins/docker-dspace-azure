@@ -10,6 +10,13 @@ POSTGRES_SCHEMA=${POSTGRES_SCHEMA:-dspace}
 POSTGRES_ADMIN_USER=${POSTGRES_ADMIN_USER:-postgres}
 POSTGRES_ADMIN_PASSWORD=${POSTGRES_ADMIN_PASSWORD}
 
+if [ -z $POSTGRES_DB_HOST -a -z $POSTGRES_DB_PORT ]; then
+  echo "Please create a postgres container and link it to this one:"
+  echo "> docker run -d --name dspace_db postgres"
+  echo "> docker run --link dspace_db:postgres -p 8080:8080 unixelias/docker-dspace setup-postgres"
+  exit 1
+fi
+
 DSPACE_CFG=/dspace/config/local.cfg
 if [ -n $POSTGRES_ADMIN_PASSWORD ]; then
   export PGPASSWORD=$POSTGRES_ADMIN_PASSWORD
