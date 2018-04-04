@@ -100,6 +100,7 @@ RUN mkdir -p maven \
 ADD ./rootfs /
 COPY ./config/local.cfg /dspace/config
 COPY ./config/sword-server.cfg /dspace/config/modules/sword-server.cfg
+COPY ./config/swordv2-server.cfg /dspace/config/modules/swordv2-server.cfg
 
 VOLUME $DSPACE_HOME/assetstore
 VOLUME $DSPACE_HOME/config
