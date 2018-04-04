@@ -99,6 +99,7 @@ RUN mkdir -p maven \
 # Install root filesystem
 ADD ./rootfs /
 COPY ./config/local.cfg /dspace/config
+COPY ./config/sword-server.cfg /dspace/config/modules/sword-server.cfg
 
 VOLUME $DSPACE_HOME/assetstore
 VOLUME $DSPACE_HOME/config
